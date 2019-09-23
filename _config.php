@@ -3,7 +3,7 @@
 if (file_exists(__DIR__ . '../vendor/autoload.php')) {
     require_once __DIR__ . '../vendor/autoload.php';
 }
-
-if (class_exists('SilverStripe\CMS\Controllers\ContentController')) {
-    \SilverStripe\Core\Extensible::add_extension('SilverStripe\CMS\Controllers\ContentController', 'Heyday\HashPath\HashPathExtension');
+//to compatible with ss 3.7 and php 7.3
+if (class_exists('ContentController')) {
+    SS_Object::add_extension('ContentController', 'HashPathExtension');
 }
